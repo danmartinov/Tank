@@ -2,17 +2,17 @@ version: '3'
 
 services:
   db:
-    image: mysql:5.7
+    build: ./
     volumes:
       - db_data:/var/lib/mysql
     restart: always
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: tank
-      MYSQL_DATABASE: tank
-      MYSQL_USER: tank
-      MYSQL_PASSWORD: tank
-#  tomcat:
+      - MYSQL_ROOT_PASSWORD=tank
+      - MYSQL_DATABASE=tank
+      - MYSQL_USER=tank
+      - MYSQL_PASSWORD=tank
+      - MYSQL_MAX_ALLOWED_PACKET=100M
 volumes:
     db_data:
